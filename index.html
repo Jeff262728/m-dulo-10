@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parquímetro Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="rua">
+    <div class="poste"></div>
+
+    <section class="parquimetro" aria-label="Parquímetro">
+      <header class="parquimetro__topo">
+        <span class="parquimetro__marca">ZONA AZUL</span>
+        <span class="parquimetro__id">Nº 0417</span>
+      </header>
+
+      <div class="parquimetro__tela" role="status" aria-live="polite">
+        <div class="tela__linha tela__linha--principal" id="telaPrincipal">R$ 0,00</div>
+        <div class="tela__linha tela__linha--secundaria" id="telaSecundaria">insira o valor</div>
+      </div>
+
+      <form class="parquimetro__painel" id="formValor">
+        <label for="valorInput" class="painel__label">Valor inserido (R$)</label>
+        <input
+          type="number"
+          id="valorInput"
+          class="painel__input"
+          placeholder="0,00"
+          step="0.25"
+          min="0"
+          inputmode="decimal"
+          required
+        >
+
+        <div class="painel__atalhos" aria-label="Valores rápidos">
+          <button type="button" class="moeda" data-valor="1">R$1</button>
+          <button type="button" class="moeda" data-valor="2">R$2</button>
+          <button type="button" class="moeda" data-valor="5">R$5</button>
+        </div>
+
+        <button type="submit" class="painel__inserir">Inserir moeda</button>
+      </form>
+
+      <div class="parquimetro__fenda" aria-hidden="true"></div>
+      <p class="parquimetro__rodape">1,00 = 30 min de permanência</p>
+    </section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
